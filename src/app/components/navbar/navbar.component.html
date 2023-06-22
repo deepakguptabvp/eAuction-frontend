@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+    <a routerLink="/" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>storefront</mat-icon>
+    </a>
+
+    <span>E-Auction</span>
+    <span class="example-spacer"></span>
+
+    <a  *ngIf="!isLoggedIn" [routerLink]="'/buyer-login'" class="mr10" mat-raised-button color="primary">Login</a>
+    <a  *ngIf="!isLoggedIn" [routerLink]="'/buyer-register'" mat-raised-button color="primary">Register</a>
+
+    <button *ngIf="isLoggedIn && buyer" class="mr20" routerLink="/home" mat-raised-button color="primary">
+      {{ buyerlogin.getBuyer().firstName }}</button>
+
+    <a  (click)="logout()" *ngIf="isLoggedIn"  mat-raised-button color="primary">Logout</a>
+  </mat-toolbar>

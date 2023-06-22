@@ -1,0 +1,72 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <mat-card>
+          <h1 class="text-center mt10"><b><u> Registeration Form </u> </b></h1>
+
+          <!-- {{ buyer | json}} -->
+
+          <form (ngSubmit)="formSubmit()">
+
+            <mat-form-field class="full-width ml10" appearance="fill">
+              <mat-label>First Name</mat-label>
+              <input [(ngModel)]="buyer.firstName" name="firstName" id="firstname" matInput
+                placeholder="Enter your first name" required />
+            </mat-form-field>
+
+            <mat-form-field class="full-width ml10" appearance="fill">
+              <mat-label>Last Name</mat-label>
+              <input [(ngModel)]="buyer.lastName" name="lastName" id="lastname" matInput
+                placeholder="Enter your last name" required />
+            </mat-form-field>
+
+            <mat-form-field class="full-width ml10" appearance="fill">
+              <mat-label> Address </mat-label>
+              <input [(ngModel)]="buyer.address" name="address" id="username" matInput placeholder="Enter your address"
+                required />
+            </mat-form-field>
+
+            <mat-form-field class="full-width ml10" appearance="fill">
+              <mat-label> City </mat-label>
+              <input [(ngModel)]="buyer.city" name="city" id="city" matInput placeholder="Enter your city" required />
+            </mat-form-field>
+
+            <mat-form-field class="full-width ml10" appearance="fill">
+              <mat-label> State </mat-label>
+              <input [(ngModel)]="buyer.state" name="state" id="state" matInput placeholder="Enter your state"
+                required />
+            </mat-form-field>
+
+            <mat-form-field class="full-width ml10" appearance="fill">
+              <mat-label> Pin </mat-label>
+              <input [(ngModel)]="buyer.pin" name="pin" id="pin" matInput placeholder="Enter your pin" required />
+            </mat-form-field>
+
+            <mat-form-field class="full-width ml10" appearance="fill">
+              <mat-label> Phone Number</mat-label>
+              <input [(ngModel)]="buyer.phone" name="phone" id="phone" matInput placeholder="Enter your phone number"
+                required />
+            </mat-form-field>
+
+            <mat-form-field class="full-width ml10" appearance="fill">
+              <mat-label> Email</mat-label>
+              <input [(ngModel)]="buyer.email" name="emial" id="email" matInput placeholder="Enter your email"
+                required />
+            </mat-form-field>
+
+            <mat-form-field class="full-width ml10" appearance="fill">
+              <mat-label>Password </mat-label>
+              <input [(ngModel)]="buyer.password" name="password" id="password" type="password" matInput
+                placeholder="Enter your password" required />
+            </mat-form-field>
+
+            <div class="container text-center mb10">
+              <button type="submit" mat-raised-button color="primary">Register</button>
+            </div>
+          </form>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

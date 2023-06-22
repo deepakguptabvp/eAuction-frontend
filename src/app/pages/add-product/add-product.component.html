@@ -1,0 +1,63 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <mat-card>
+                    <h1 class="text-center mt10"><b><u> Add Your Product Here </u></b></h1>
+
+                    <form (ngSubmit)="saveProduct()">
+                        <mat-form-field class="full-width ml10" appearance="fill">
+                            <mat-label>Product Name</mat-label>
+                            <input [(ngModel)]="addProductData.productName" name="product name" id="productName" matInput placeholder="Placeholder" required />
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width ml10" id="productCategory" appearance="fill">
+                            <mat-label>Product Category</mat-label>
+                            <mat-select>
+                                <mat-option value="one">Chain</mat-option>
+                                <mat-option value="two">Bracelet</mat-option>
+                                <mat-option value="two">Ring</mat-option>
+                                <mat-option value="two">Kada</mat-option>
+                                <mat-option value="two">Earrings</mat-option>
+                                <mat-option value="two">Pendant</mat-option>
+                                <mat-option value="two">Nose pin</mat-option>
+                                <mat-option value="two">Paintings</mat-option>
+                                <mat-option value="two">Sculptor</mat-option>
+                            </mat-select>
+                            <option *ngFor="let productCategory of productCategoryList" [ngValue]="productCategory">
+                                {{productCategory.category}}</option>
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width ml10" appearance="fill">
+                            <mat-label>Short Description</mat-label>
+                            <input [(ngModel)]="addProductData.shortDescription" name="short description" id="shortDescription" matInput placeholder="Placeholder"
+                                required />
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width ml10" appearance="fill">
+                            <mat-label>Detailed Description</mat-label>
+                            <input [(ngModel)]="addProductData.detailedDescription" name="detailed description" id="detailedDescription" matInput
+                                placeholder="Placeholder" required />
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width ml10" appearance="fill">
+                            <mat-label>Starting Price</mat-label>
+                            <input [(ngModel)]="addProductData.startingPrice" name="starting price" id="startingPrice" matInput placeholder="Placeholder"
+                                required />
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width ml10" appearance="fill">
+                            <mat-label>Bid End Date</mat-label>
+                            <input [(ngModel)]="addProductData.bidEndDate" type="date" name="bid end date" id="bidEndDate" matInput placeholder="Placeholder"
+                                required />
+                        </mat-form-field>
+
+                        <div class="container text-center mb10">
+                            <button type="submit" mat-raised-button color="primary">Click to add product</button>
+                        </div>
+                    </form>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

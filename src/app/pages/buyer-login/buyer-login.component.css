@@ -1,0 +1,8 @@
+.centered img {
+    width: 540px;
+    height: 240px; 
+    margin-top: 10px;
+  }
+.full-width{
+    width: 96%;
+}
