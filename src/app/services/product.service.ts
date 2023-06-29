@@ -23,7 +23,7 @@ export class ProductService {
   getProduct(productId: any) {
     return this.http.get(`${baseUrl}/e-auction/api/v1/seller/show-bids/${productId}`);
   }
-
+      
   // deleteProduct-ByID
   deleteProductById(productId: any) {
     return this.http.delete(`${baseUrl}/e-auction/api/v1/seller/delete/${productId}`);

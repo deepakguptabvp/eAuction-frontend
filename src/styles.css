@@ -46,6 +46,10 @@ body {
 .mb10 {
     margin-bottom: 10px !important;
 }
+.mt30 {
+    margin-bottom: 30px !important;
+}
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

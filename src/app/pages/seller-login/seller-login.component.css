@@ -1,8 +1,8 @@
 .centered img {
     width: 520px;
-    height: 230px; 
-    margin-top: 10px;
+    height: 250px; 
+    border-radius: 20px;
   }
 .full-width{
-    width: 95%;
+    width: 96%;
 }

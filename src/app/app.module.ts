@@ -23,6 +23,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { BuyerRegisterComponent } from './pages/buyer-register/buyer-register.component';
 import { AddProductComponent } from './pages/add-product/add-product.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
+import { ViewProductComponent } from './pages/view-product/view-product.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ProductListComponent } from './pages/product-list/product-list.componen
     HomeComponent,
     BuyerRegisterComponent,
     AddProductComponent,
-    ProductListComponent
+    ProductListComponent,
+    ViewProductComponent
   ],
   imports: [
     BrowserModule,

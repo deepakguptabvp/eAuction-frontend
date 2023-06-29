@@ -15,7 +15,7 @@ export class BuyerLoginComponent implements OnInit {
     password: ''
   }
 
-  errorMessage: any
+  errorMessage: any ;
   constructor(private snack: MatSnackBar, private loginService: BuyerLoginService, private router: Router) { }
 
   ngOnInit(): void {}
@@ -39,9 +39,10 @@ export class BuyerLoginComponent implements OnInit {
     this.loginService.loginUser(this.loginData.email, this.loginData.password).subscribe(
       (data: any) => {
         console.log(data);
-        this.snack.open("Welcome To E-Auction", "Okay");
+        // this.snack.open("Welcome To E-Auction", "Okay");
         this.loginService.loginStatusSubject.next(true);
-        this.router.navigate(["/product-list"])
+        this.router.navigate(["/product-list"]);
+        alert('Welcome to E-Auction');
 
         // if(this.loginService.getBuyer() == this.loginService.isLoggedIn){
         //   console.log('User is already logged in')

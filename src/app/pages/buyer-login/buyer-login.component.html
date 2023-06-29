@@ -6,15 +6,16 @@
                     <div class="centered">
                         <img src="../../../assets/logo.png" alt="Login logo" />
                     </div>
-                    <h1 class="text-center mt10"><u> Login Here </u></h1>
-    
+                    <h1 class="text-center mt10"><u> <b> Buyer Login  </b></u></h1>
+
                     <form (ngSubmit)="formSubmit()">
+                        
                         <mat-form-field class="full-width ml10" appearance="outline">
                             <mat-label> Email</mat-label>
                             <input [(ngModel)]="loginData.email" name="email" required matInput
                                 placeholder="Enter here" />
                         </mat-form-field>
-
+ 
                         <mat-form-field class="full-width ml10 mt20" appearance="outline">
                             <mat-label> Password</mat-label>
                             <input [(ngModel)]="loginData.password" name="password" type="password" required matInput
@@ -24,7 +25,7 @@
                         <div class="container text-center">
                             <button class="mr20 mt10 mb10" mat-raised-button color="primary"
                                 type="submit">Login</button>
-                            <button class="ml20 mt10 mb10" mat-raised-button color="accent">Reset</button>
+                            <!-- <button class="ml20 mt10 mb10" mat-raised-button color="accent">Reset</button> -->
                         </div>
 
                     </form>

@@ -6,6 +6,7 @@ import { BuyerRegisterComponent } from './pages/buyer-register/buyer-register.co
 import { SellerLoginComponent } from './pages/seller-login/seller-login.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { AddProductComponent } from './pages/add-product/add-product.component';
+import { ViewProductComponent } from './pages/view-product/view-product.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,11 @@ const routes: Routes = [
   {
     path: 'add-product',
     component: AddProductComponent, 
+    pathMatch: 'full',
+  },
+  {
+    path: 'view-product',
+    component: ViewProductComponent, 
     pathMatch: 'full',
   },
 ];

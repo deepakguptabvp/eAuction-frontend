@@ -4,6 +4,22 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ProductService } from 'src/app/services/product.service';
 
+class Product {
+  
+  public id!: number;
+  public productName!: string;
+  public shortDescription!: string;
+  public detailedDescription!: string;
+  public startingPrice!: number;
+  public bidEndDate!: Date;
+  public category!: ProductCategory;
+}
+
+class ProductCategory {
+  public id!: number;
+  public category!: string;
+}
+
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
@@ -11,24 +27,20 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class AddProductComponent implements OnInit {
 
-  addProductData = {
-    id:"",
-    productName: "",
-    category: "",
-    shortDescription: "",
-    detailedDescription: "",
-    startingPrice: "",
-    bidEndDate: ""
-  }
   productCategoryList: any = [];
 
-  constructor(private snack: MatSnackBar, private productService: ProductService, private router: Router, private auth:AuthenticationService) { }
+  addProductData!: Product;
+
+  constructor(private snack: MatSnackBar, private productService: ProductService, private router: Router, private auth: AuthenticationService) { }
 
   ngOnInit(): void {
-    // if(this.auth.checkBuyerSession() || this.auth.checkSellerSession(){
-    //   this.addProductData = new 
-    // })
+    this.addProductData = new Product();
+    this.productService.fetchProductCategory().subscribe(
+      (data: any) => {
+        this.productCategoryList = data;
 
+      }
+    )
   }
 
   saveProduct() {
@@ -58,18 +70,20 @@ export class AddProductComponent implements OnInit {
       });
     }
 
-    if (this.addProductData.startingPrice.trim() == '' || this.addProductData.startingPrice == null) {
-      this.snack.open("Starting Price is required", "okay", {
-        duration: 2000
-      });
-    }
+    // if (this.addProductData.startingPrice.trim() == '' || this.addProductData.startingPrice == null) {
+    //   this.snack.open("Starting Price is required", "okay", {
+    //     duration: 2000
+    //   });
+    // }
 
-    if (this.addProductData.bidEndDate.trim() == '' || this.addProductData.bidEndDate == null) {
-      this.snack.open("Bid End Date is required", "okay", {
-        duration: 2000
-      });
-    }
+    // if (this.addProductData.bidEndDate.trim() == '' || this.addProductData.bidEndDate == null) {
+    //   this.snack.open("Bid End Date is required", "okay", {
+    //     duration: 2000
+    //   });
+    // }
 
+    console.log(this.addProductData);
+    console.log(this.addProductData.category);
     this.productService.saveProduct(this.addProductData).subscribe(
       (data: any) => {
         console.log(data);
@@ -88,3 +102,4 @@ export class AddProductComponent implements OnInit {
 }
 
 
+ 

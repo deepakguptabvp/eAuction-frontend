@@ -1,0 +1,31 @@
+<div class="container">
+    <h1 class="text-center mt20"> <u><b> Biding Details </b></u></h1>
+    <table class="table table-hover text-center table table-bordered mt20 ">
+
+        <tr>
+            <th>Product Name</th>
+            <td>{{productDetails.productName}}</td>
+        </tr>
+        <tr>
+            <th>Product Category</th>
+            <td *ngIf="productDetails.category.category!=undefined">{{productDetails.category.category}}</td>
+        </tr>
+        <tr>
+            <th>Short Description</th>
+            <td>{{productDetails.shortDescription}}</td>
+        </tr>
+        <tr>
+            <th>Detailed Description</th>
+            <td>{{productDetails.detailedDescription}}</td>
+        </tr>
+        <tr>
+            <th>Starting Price</th>
+            <td>{{productDetails.startingPrice}}</td>
+        </tr>
+        <tr>
+            <th>Bid End Date</th>
+            <td>{{productDetails.bidEndDate| date:'MM/dd/yyyy'}}</td>
+        </tr>
+
+    </table>
+</div>
