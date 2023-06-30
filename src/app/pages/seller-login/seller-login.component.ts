@@ -44,7 +44,7 @@ export class SellerLoginComponent implements OnInit {
       },
       (error) => {
         console.log('Fail');
-        console.log(error);
+        console.log(error);   
         this.snack.open('Invalid Details !! Try again', 'okay', {
           duration: 1500,
         });
