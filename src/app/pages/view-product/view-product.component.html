@@ -1,31 +1,95 @@
-<div class="container">
-    <h1 class="text-center mt20"> <u><b> Biding Details </b></u></h1>
-    <table class="table table-hover text-center table table-bordered mt20 ">
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="form-label bg-dark text-light pt-3 mt20 text-center" style="height: 60px;" for="form2Example1">
+            <h1><b>Product Details</b></h1>
+        </div>
+        <!-- {{product|json}} -->
+        <ng-container *ngIf="product!=null; then first"></ng-container>
+        <ng-template #first>
+            <table class="table table-bordered text-center  mt10">
+                <tr>
+                    <th>Product Name</th>
+                    <td>{{product.productName}}</td>
+                </tr>
+                <tr>
+                    <th>Product Category</th>
+                    <td>{{product.category.category}}</td>
+                </tr>
+                <tr>
+                    <th>Short Description</th>
+                    <td>{{product.shortDescription}}</td>
+                </tr>
+                <tr>
+                    <th>Detailed Description</th>
+                    <td>{{product.detailedDescription}}</td>
+                </tr>
+                <tr>
+                    <th>Starting Price</th>
+                    <td>{{product.startingPrice}}</td>
+                </tr>
+                <tr>
+                    <th>Bid End Date</th>
+                    <td>{{product.bidEndDate | date:'MM/dd/yyyy'}}</td>
+                </tr>
 
-        <tr>
-            <th>Product Name</th>
-            <td>{{productDetails.productName}}</td>
-        </tr>
-        <tr>
-            <th>Product Category</th>
-            <td *ngIf="productDetails.category.category!=undefined">{{productDetails.category.category}}</td>
-        </tr>
-        <tr>
-            <th>Short Description</th>
-            <td>{{productDetails.shortDescription}}</td>
-        </tr>
-        <tr>
-            <th>Detailed Description</th>
-            <td>{{productDetails.detailedDescription}}</td>
-        </tr>
-        <tr>
-            <th>Starting Price</th>
-            <td>{{productDetails.startingPrice}}</td>
-        </tr>
-        <tr>
-            <th>Bid End Date</th>
-            <td>{{productDetails.bidEndDate| date:'MM/dd/yyyy'}}</td>
-        </tr>
+            </table>
+        </ng-template>
 
-    </table>
+        <!--    To bid on product      -->
+        <div style="height:100px mt-5">
+            <div class="form-label bg-dark text-light pt-3 text-center" style="height:60px;" for="form2Example1">
+                <h3><b>Put Biding Amount</b></h3><br>
+            </div>
+            <input type="number" id="form2Example1" class="form-control" name="number" />
+            <div class="text-center mt-3">
+                <button class="btn btn-success mb-4" (click)="addingBid()">Bid</button>
+            </div>
+        </div>
+
+        <!-- to update or delete the bid -->
+        <!-- <div style="height: 100px mt-5" >
+        <div class="form-label bg-dark text-light text-center pt-3 mt10" style="height:50px;" for="form2Example1">
+            <b>Update Biding Amount</b>
+        </div>
+        <input type="number" id="form2Example1" class="form-control" name="number"
+            [(ngModel)]="getBidIfExists.bidAmount" />
+
+        <div class="text-center mt-3 mb-4">
+            <button class="btn btn-success" (click)="updateBid()">Update-Bid</button>
+            <br> <br>
+            <button class="btn btn-danger" (click)="deleteBid(getBidIfExists.id)">Delete</button>
+        </div>
+    </div> -->
+
+
+        <div style="height: 180px ; overflow: auto;">
+            <div class="form-label bg-dark text-light pt-3 text-center" style="height: 60px;" for="form2Example1">
+                <h1>Bid Details</h1>
+            </div>
+            <table class="table table-hover table-bordered text-center">
+                <!-- <table class="table table-hover table table-bordered text-center"> -->
+                <thead class="thead-light">
+                    <tr class="bg-dark text-light">
+                        <th>Bid Amount</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let bid of bids">
+                    <td>{{bid.bidAmount}}</td>
+                    <td>{{bid.buyer.firstName}}</td>
+                    <td>{{bid.buyer.email}}</td>
+                    <td>{{bid.buyer.phone}}</td>
+                    <td>
+                        <button type="submit" mat-raised-button color="warn" title="Delete">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
 </div>

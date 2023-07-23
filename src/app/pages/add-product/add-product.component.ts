@@ -29,7 +29,7 @@ export class AddProductComponent implements OnInit {
 
   productCategoryList: any = [];
 
-  addProductData!: Product;
+  addProductData:any ;
 
   constructor(private snack: MatSnackBar, private productService: ProductService, private router: Router, private auth: AuthenticationService) { }
 
@@ -82,8 +82,8 @@ export class AddProductComponent implements OnInit {
     //   });
     // }
 
-    console.log(this.addProductData);
-    console.log(this.addProductData.category);
+    // console.log(this.addProductData);
+    // console.log(this.addProductData.category);
     this.productService.saveProduct(this.addProductData).subscribe(
       (data: any) => {
         console.log(data);

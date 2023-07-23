@@ -7,7 +7,7 @@ import { BuyerLoginService } from 'src/app/services/buyer-login.service';
   styleUrls: ['./navbar.component.css']
 })
 
-
+   
 export class NavbarComponent implements OnInit {
 
   isLoggedIn = false;
@@ -16,8 +16,6 @@ export class NavbarComponent implements OnInit {
   constructor(public buyerlogin: BuyerLoginService) { }
 
   ngOnInit(): void {
-    // this.isLoggedIn = this.buyerlogin.isLoggedIn();
-    // this.buyer = this.buyerlogin.getBuyer();
     this.buyerlogin.loginStatusSubject.asObservable().subscribe(data => {
       this.isLoggedIn = this.buyerlogin.isLoggedIn();
       this.buyer = this.buyerlogin.getBuyer();

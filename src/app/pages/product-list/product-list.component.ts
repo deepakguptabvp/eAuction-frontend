@@ -17,7 +17,7 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getAllProducts().subscribe(
       (data: any) => {
-        console.log(data);
+        // console.log(data);
         this.ProductArray = data;
       }  
     )
@@ -28,18 +28,18 @@ export class ProductListComponent implements OnInit {
   }
 
   viewProduct(productId: string) {
-    console.log(productId)
+    // console.log(productId)
     sessionStorage.setItem("productId", productId);
     this.router.navigate(["view-product"]);
   }
 
-  // deleteProduct(productId: any) {
-  //   this.productService.deleteProductById(productId).subscribe(
-  //     (data: any) => {
-  //       this.ProductArray();
-  //     },
-  //     (error) => {
-  //       console.log(error)
-  //     });
-  // }
+  deleteProduct(productId: any) {
+    this.productService.deleteProductById(productId).subscribe(
+      (data: any) => {
+        this.ProductArray();
+      },
+      (error) => {
+        console.log(error);
+      });
+  }
 }

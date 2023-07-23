@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { BuyerLoginService } from 'src/app/services/buyer-login.service';
 
 @Component({
@@ -15,13 +16,14 @@ export class BuyerLoginComponent implements OnInit {
     password: ''
   }
 
-  errorMessage: any ;
-  constructor(private snack: MatSnackBar, private loginService: BuyerLoginService, private router: Router) { }
+  constructor(private snack: MatSnackBar, private loginService: BuyerLoginService, private router: Router, private auth:AuthenticationService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
 
   formSubmit() {
-    console.log('clicked')
+    // console.log('clicked');
 
     if (this.loginData.email.trim() == '' || this.loginData.email == null) {
       this.snack.open("Email is required", "okay", {
@@ -38,28 +40,21 @@ export class BuyerLoginComponent implements OnInit {
     // buyer-login 
     this.loginService.loginUser(this.loginData.email, this.loginData.password).subscribe(
       (data: any) => {
-        console.log(data);
-        // this.snack.open("Welcome To E-Auction", "Okay");
         this.loginService.loginStatusSubject.next(true);
         this.router.navigate(["/product-list"]);
         alert('Welcome to E-Auction');
 
-        // if(this.loginService.getBuyer() == this.loginService.isLoggedIn){
-        //   console.log('User is already logged in')
-        // } else {
-        //   this.loginService.logout();
-        //   this.router.navigate(['/buyer-login']);
-        // }
+        this.auth.setBuyerSession(this.loginData.email);
 
       },
-      // error=> {this.errorMessage= error.errorMessage})
       (error) => {
         console.log('Fail');
         console.log(error);
         this.snack.open('Invalid Details !! Try again', 'okay', {
           duration: 1500,
         });
-      });
+      }
+      );
 
 
   };

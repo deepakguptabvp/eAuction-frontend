@@ -7,28 +7,22 @@ export class AuthenticationService {
 
   constructor() { }
 
-  // setSellerSession() {
-  //   sessionStorage.setItem("seller", "seller");
-  // }
+  setSellerSession(){
+    sessionStorage.setItem("seller","seller");
+  }
 
-  // checkSellerSession() {
-  //   if (sessionStorage.getItem("seller") != null) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
+  checkSellerSession(){
+    if(sessionStorage.getItem("seller")!=null){return true;}
+    return false;
+  }
 
-  // setBuyerSession(buyerEmail: string) {
-  //   sessionStorage.setItem("buyer", buyerEmail);
-  // }
+  setBuyerSession(buyerEmail:any){
+    sessionStorage.setItem("buyerEmail",buyerEmail);
+  }
 
-  // checkBuyerSession() {
-  //   if (sessionStorage.getItem("buyer") != null) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
+  checkBuyerSession(){
+    if(sessionStorage.getItem("buyerEmail")!=null){return true;}
+    return false;
+  }
 
 }

@@ -55,10 +55,13 @@ export class BuyerLoginService {
     }
   }
 
+
   // logout (remove data from local storage)
   public logout() {
     localStorage.removeItem('buyer');
     // localStorage.removeItem('currentBuyer');
     return true;
   }
+
+  
 }
